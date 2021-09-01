@@ -1,0 +1,6 @@
+bin
+obj
+Logs
+.vs
+libs
+node_modules

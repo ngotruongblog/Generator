@@ -1,0 +1,70 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+{
+  "Id": "<#= fileJson.Id #>",
+  "Name": "<#= fileJson.Name #>",
+  "OriginalName": "<#= fileJson.OriginalName #>",
+  "NamePlural": "<#= fileJson.NamePlural #>",
+  "DatabaseTableName": "<#= fileJson.DatabaseTableName #>",
+  "Namespace": "<#= fileJson.Namespace #>",
+  "BaseClass": "<#= fileJson.BaseClass #>",
+  "PrimaryKeyType": "<#= fileJson.PrimaryKeyType #>",
+  "IsMultiTenant": <#= fileJson.IsMultiTenant.ToString().ToLower() #>,
+  "ShouldCreateUserInterface": <#= fileJson.ShouldCreateUserInterface.ToString().ToLower() #>,
+  "ShouldCreateBackend": <#= fileJson.ShouldCreateBackend.ToString().ToLower() #>,
+  "ShouldAddMigration": <#= fileJson.ShouldAddMigration.ToString().ToLower() #>,
+  "ShouldUpdateDatabase": <#= fileJson.ShouldUpdateDatabase.ToString().ToLower() #>,
+  "CreateTests": <#= fileJson.CreateTests.ToString().ToLower() #>,
+  "Properties": [
+    <#
+     for (int i = 0; i < fileJson.Properties.Count; i++)
+     {
+        var pro = fileJson.Properties[i];
+     #>
+            {
+              "Id": "<#= pro.Id #>",
+              "Name": "<#= pro.Name #>",
+              "Type": "<#= pro.Type #>",
+              "EnumType": "<#= pro.EnumType #>",
+              "EnumNamespace": "<#= pro.EnumNamespace #>",
+              "EnumAngularImport": "<#= pro.EnumAngularImport #>",
+              "IsNullable": <#= pro.IsNullable.ToString().ToLower() #>,
+              "IsRequired": <#= pro.IsRequired.ToString().ToLower() #>,
+              "MinLength": <#= pro.MinLength.HasValue?pro.MinLength.Value.ToString():"null" #>,
+              "MaxLength": <#= pro.MaxLength.HasValue?pro.MaxLength.Value.ToString():"null" #>,
+              "SortOrder": <#= pro.SortOrder.ToString() #>,
+              "SortType": <#= pro.SortType.ToString() #>,
+              "Regex": "<#= pro.Regex.ToString() #>",
+              "EmailValidation": <#= pro.EmailValidation.ToString().ToLower() #>,
+              "EnumValues": <#= string.IsNullOrEmpty(pro.EnumValues)?"null":pro.EnumValues #>,
+            }<#if(i != (fileJson.Properties.Count - 1)){#>,<#}#>
+   <#}#>
+  ],
+  "NavigationProperties": [
+    <#
+     for (int i = 0; i < fileJson.navigationProperties.Count; i++)
+     {
+        var nav = fileJson.navigationProperties[i];
+    #>  
+        {
+          "Namespace": "<#= nav.Namespace #>",
+          "EntityName": "<#= nav.EntityName #>",
+          "EntityNameWithDuplicationNumber": "<#= nav.EntityNameWithDuplicationNumber #>",
+          "EntitySetNameWithDuplicationNumber": "<#= nav.EntitySetNameWithDuplicationNumber #>",
+          "EntitySetName": "<#= nav.EntitySetName #>",
+          "DtoNamespace": "<#= nav.DtoNamespace #>",
+          "DtoEntityName": "<#= nav.DtoEntityName #>",
+          "Type": "<#= nav.Type #>",
+          "Name": "<#= nav.Name #>",
+          "ReferencePropertyName": "<#= nav.ReferencePropertyName #>",
+          "DisplayProperty": "<#= nav.DisplayProperty #>",
+          "UiPickType": "<#= nav.UiPickType #>",
+          "IsRequired": <#= nav.IsRequired.ToString().ToLower() #>
+        }<#if(i != (fileJson.navigationProperties.Count - 1)){#>,<#}#>
+  <#}#>
+  ],
+  "PhysicalFileName": "<#= fileJson.PhysicalFileName #>"
+}
