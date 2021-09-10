@@ -30,6 +30,8 @@
 ## Step 6: Copy json files into .suite\entities\ folder in the Abp project
 ![image](https://user-images.githubusercontent.com/45006046/132880939-cd43eab0-7ec7-4187-bd50-d84c9b9b9833.png)
 >Then, refresh Abp Suite tool and generate code.
+![image](https://user-images.githubusercontent.com/45006046/132882407-23a916bf-f1ad-48ee-a006-e3fde101b1f9.png)
+
 ## Step 7: After generating code from Abp Suite, we need to edit xxxDbContextModelCreatingExtensions.cs so that the colume name could be fit with database
 ![image](https://user-images.githubusercontent.com/45006046/132881856-f5573885-6f18-4d60-9060-65b996fa88df.png)
 
