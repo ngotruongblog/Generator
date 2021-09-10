@@ -13,7 +13,9 @@
 ## Step 3: Click the Add Connection icon in Server Explorer
 ![image](https://user-images.githubusercontent.com/45006046/132878224-8f0d59a3-4334-46b3-8cd1-30ca44c1b867.png)
 > Choose Database Connection -> Choose table/view to generate
+> 
 > ![image](https://user-images.githubusercontent.com/45006046/132878685-13dbf5fb-365c-4a0d-89c0-674f94cc2fba.png)
+> 
 ![image](https://user-images.githubusercontent.com/45006046/132878729-c89b867a-3396-40f1-b738-4014b614d426.png)
 ## Step 4: Install oracle.entityframeworkcore nuget and delete DataContext.cs file
 ![image](https://user-images.githubusercontent.com/45006046/132878921-db683ed4-e8e1-49d0-98b9-679750c2b278.png)
