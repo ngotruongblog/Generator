@@ -5,7 +5,8 @@
 > 
 > Download source: https://github.com/ngotruongblog/Generator
 
-
+## Step 0: Download source
+> Download source at : https://github.com/ngotruongblog/Generator
 ## Step 1: Install EF Core Power Tool for visual studio
 ![image](https://user-images.githubusercontent.com/45006046/132877440-2550c81e-5597-4829-b082-af80d93ad224.png)
 ## Step 2: Right-click in Generater project, choose Reverse Engineer
